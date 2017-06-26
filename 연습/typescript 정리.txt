@@ -1,0 +1,56 @@
+1.TypeScript
+https://jaewonism.com/posts/33?page=1
+basic 한글설명
+
+let : 변하는 값(blob scope)
+const : 변하지 않는 값(상수)
+- let과 const를 이용하여 변수를 선언했을 경우, 유효범위는 블록 단위가 된다.
+- 향상된 javascript를 이용할 수 있음
+- 브라우저가 지원하지 않아서 사용하지 못할 수 도 있음
+
+
+
+Enum
+- 배열로 된 형태를 여러가지 타입으로 지정 할 수 있다.
+
+scope - 영역
+lexical scope(렉시컬(정적) 스코프) 
+		- scope는 함수를 부를 때(X) 선언할때(O) 생성
+			변수 선언시에 적용되는 변수값을 사용
+ex) 			
+			var name = 'zero'; //전역변수
+
+			function wrapper() {
+			  var name = 'nero';//지역변수
+			    console.log("wrapper : "+name);//nero
+				
+				log();
+				log2();
+			  function log() {
+			  console.log("log : "+name); //nero
+				}
+			 
+			}
+			
+			function log2() {
+			  console.log("log2 : "+name); //zero
+				}
+	wrapper();			
+nested scope(중첩 스코프) - function a = { function b ={ function c ={ } } }
+				이렇게 중첩되어 있는 함수에서 자기자신은 inner scope, 자기를 감싸고 있는 상위 한단계를 outer scope로 지칭
+				inner scope는 자기가 찾는 변수명이 없을 경우 상위함수인 outer scope에서 찾을 수 있다,
+				한 단계 위에도 없을 경우에는 그 한단계 더 위 찾을 때까지 올라가서 찾을 수 있고 끝까지 갔을때
+				변수를 찾을 수 없을 경우는데 error가 난다.
+shadowing - 변수 명이 여러가지 중복일 경우 내 영역의 변수를 제일 먼저 읽는다.
+			inner함수는 outer 함수에 영향을 주지않는다.
+			
+var : function scope
+warning!
+- 비동기function인 경우, IIFE를 사용해야한다.
+	IIFE : (function () {
+			// Do fun stuff
+			}
+		)()
+		
+그렇지 않은 경우에는 for문에 있는 조건을 끝까지 돌리고 한번에 for문안에 있는 비동기를 한번에 돌리기 때문에!
+ 
