@@ -1,0 +1,122 @@
+# 1. 개요
+## 1.1 개요
+### 1.1.1 줄 내림
+내가 줄내림을 이쯤에서
+할거야
+### 1.1.2
+# 2. 폰트 스타일
+## 2.1 볼드, 이태릭
+### 2.1.1
+__이 문자는 볼드 스타일이 적용된 문자열입니다.__
+### 2.1.2
+_아 문자는 이태릭 스타일이 적용된 문자열입니다._
+## 2.2 하이라이트
+이 문자는 _`하이라이트`_이 적용된 문자열
+# 3. 인용구문
+## 3.1
+이 내용은 네이버 하늘이 블로그에서 인용한 내용입니다.
+> __네이버 블로그__ - http://blog.naver.com
+> 인용 이어가기
+
+# 4. 하이퍼링크
+이 [링크](http://www.naver.com)는 naver로 이동합니다.
+
+# 5. 이미지, 아이콘 삽입
+![이미지](http://shopping.phinf.naver.net/main_1058469/10584692717.20161103215455.jpg?type=f300)
+
+# 6. 표
+
+|컬럼1|컬럼2|컬럼3|
+|:-:|:-:|:-:|
+|은지|하늘|관호|
+|사원|사원|대리|
+|예쁨|보통|못생김|
+
+# 7. 텍스트 블록
+```
+Addtrue(tag, category){
+  interface Tag {
+    [key: string]: any
+  }
+  let data: Tag = {};
+  let params = [];
+  params[0] = tag.store_id;
+  params[1] = tag.material_category_no;
+  params[2] = tag.tag_addr;
+  params[3] = tag.tag_name;
+  params[4] = category.t_alarm_yn;
+  params[5] = category.t_alarm_min;
+  params[6] = category.t_alarm_max;
+  params[7] = category.h_alarm_yn;
+  params[8] = category.h_alarm_min;
+  params[9] = category.h_alarm_max;
+  params[10] = category.b_alarm_yn;
+  params[11] = category.b_alarm_min;
+
+  data.params = params;
+
+  this.loading = this.loadingCtrl.create({
+    content: '등록 중 입니다.'
+  });
+  this.loading.present().then(
+      this.addTagService.addTag(data, '_proc/P_ADD_TAG_MATERIAL')
+      .subscribe(
+          res => this.success(res),
+          error => this.error(<any>error),
+          () => {
+            this.loading.dismiss();
+          })
+  );
+}
+```
+```javascript
+Addtrue(tag, category){
+  interface Tag {
+    [key: string]: any
+  }
+  let data: Tag = {};
+  let params = [];
+  params[0] = tag.store_id;
+  params[1] = tag.material_category_no;
+  params[2] = tag.tag_addr;
+  params[3] = tag.tag_name;
+  params[4] = category.t_alarm_yn;
+  params[5] = category.t_alarm_min;
+  params[6] = category.t_alarm_max;
+  params[7] = category.h_alarm_yn;
+  params[8] = category.h_alarm_min;
+  params[9] = category.h_alarm_max;
+  params[10] = category.b_alarm_yn;
+  params[11] = category.b_alarm_min;
+
+  data.params = params;
+
+  this.loading = this.loadingCtrl.create({
+    content: '등록 중 입니다.'
+  });
+  this.loading.present().then(
+      this.addTagService.addTag(data, '_proc/P_ADD_TAG_MATERIAL')
+      .subscribe(
+          res => this.success(res),
+          error => this.error(<any>error),
+          () => {
+            this.loading.dismiss();
+          })
+  );
+}
+```
+
+# 7. ordered list unorderd list
+## ul
+<ul>
+  <li>김은지</li>
+  <li>정하늘</li>
+  <li>김관호</li>
+</ul>
+
+## ol
+<ol>
+<li>김은지</li>
+<li>정하늘</li>
+<li>김관호</li>
+</ol>
